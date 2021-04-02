@@ -3,11 +3,11 @@
     const getRowCard = function (id) {
         let data = this.data[id];
         let div = data.$tr || $('<div class="panelsView-card pcTable-floatInner">')
-            .css({
-                'min-height': this.tableRow.panels_view.height + 'px',
-                height: this.tableRow.panels_view.height,
-                width: this.tableRow.panels_view.width
-            });
+            // .css({
+            //     'min-height': this.tableRow.panels_view.height + 'px',
+            //     height: this.tableRow.panels_view.height,
+            //     width: this.tableRow.panels_view.width
+            // });
         data.$tr = div.empty();
         div.data('id', id);
         let panelFields = this.tableRow.panels_view.fields;
@@ -336,8 +336,11 @@
             }
         }
     }
+
     const createPanelsContent = function () {
         let $div = this._content || $('<div class="pcTable-floatBlock">');
+        let $header = $('<div class="kanban-header">');
+        let $body = $('<div class="kanban-body">');
 
         $div.each((i, d) => {
             if ((this.tableRow.with_order_field || this.kanban) && this.control.editing && !(this.f.blockorder || this.f.blockedit)) {
@@ -350,27 +353,29 @@
         $div.empty();
         this.__applyFilters();
 
-
         if (this.dataSortedVisible.length) {
             if (this.kanban) {
                 this._innerContainer.addClass('kanbanInnerContainer');
-                $div.addClass('kanbanWrapper').empty()
+                // $div.addClass('kanbanWrapper').empty();
 
-                $div.css('grid-template-columns', "1fr ".repeat(this.kanban.length));
-                let width = 0;
+                $header.css('grid-template-columns', "1fr ".repeat(this.kanban.length)).addClass('kanbanWrapper').empty();
+                $body.css('grid-template-columns', "1fr ".repeat(this.kanban.length)).addClass('kanbanWrapper').empty();
+                // let width = 0;
                 this.kanban.forEach((v) => {
-                    let divWidth = (this.tableRow.panels_view.panels_in_kanban || 1) * (parseInt(this.tableRow.panels_view.width) + 10) - 10;
+                    // let divWidth = (this.tableRow.panels_view.panels_in_kanban || 1) * (parseInt(this.tableRow.panels_view.width) + 10) - 10;
+                    // v.$div = $('<div class="kanban"></div>').data('value', v[0]);
 
-                    v.$div = $('<div class="kanban"></div>').data('value', v[0]).width(divWidth);
+                    // if (width)
+                    //     width += 20;
+                    // width += divWidth
+                    let $title = $('<div class="kanban-title">').text(v[1]).attr('data-value', v[0]);
+                    $header.append($title);
 
-                    if (width)
-                        width += 20;
-                    width += divWidth
-                    v.$div.append($('<div class="kanban-title">').text(v[1]).attr('data-value', v[0]))
-                    let $cards = $('<div class="kanban-cards">');
-                    v.$div.append($cards);
+                    let $cards = $('<div class="kanban-cards">').data('value', v[0]);
+                    $body.append($cards)
+                    // v.$div.append($cards);
                     let kId = v[0];
-                    $div.append(v.$div);
+                    // $div.append(v.$div);
 
                     this.dataSortedVisible.forEach((id) => {
                         let val = this.data[id][this.tableRow.panels_view.kanban].v || "";
@@ -379,15 +384,17 @@
                         }
                     })
                 })
-                $div.width(width);
-                this.tableWidth = width;
+                // $div.width(width);
+                // this.tableWidth = width;
             } else {
-
                 this.dataSortedVisible.forEach((id) => {
                     let card = this._getRowCard(id);
                     $div.append(card);
                 })
             }
+
+            $div.append($header);
+            $div.append($body);
 
         } else {
             $div.append('<div class="no-panels">Нет данных</div>');
@@ -530,7 +537,6 @@
             };
         }
         if (this.kanban) {
-
             let scrollable = this._container;
             let scroll_debounce;
             let wrapper, cln, attached = false;

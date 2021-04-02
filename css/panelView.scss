@@ -1,4 +1,8 @@
 .innerContainer.panelsView {
+  &.kanbanInnerContainer {
+    padding: 0;
+  }
+
   &:not(.kanbanInnerContainer) {
     overflow: visible;
   }
@@ -14,7 +18,7 @@
     white-space: inherit;
 
     .panelsView-card {
-
+      width: 100%;
       cursor: pointer;
       border: 1px solid transparent;
 
@@ -22,12 +26,12 @@
         background-color: #c8f8ff80;
       }
 
-      box-shadow: 0 0 7px 0px #0000000f;
+      box-shadow: 2px 4px 4px rgba(123, 123, 123, 0.25);
       background-color: #fff;
       padding: 10px;
       overflow: hidden;
-      margin: 5px;
-      border-radius: 4px;
+      margin-top: 10px;
+      border-radius: 5px;
 
       > div {
         width: 100%;
@@ -66,7 +70,7 @@
 
   .kanbanWrapper {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 30px;
 
     &.cln {
       position: fixed;
@@ -77,20 +81,52 @@
       }
     }
 
-    .kanban-title {
-      padding: 20px;
-      font-size: 20px;
-      background-color: #f1f1f1;
-      padding: 10px 15px 10px 15px;
-      font-size: 16px;
-      border-radius: 4px;
-      margin-bottom: 10px;
+    &.kanban-header {
+      padding: 0 30px;
+      font-weight: 700;
+      color: #525252;
+
+      .kanban-title {
+        padding: 20px 0 10px;
+        font-size: 20px;
+        // background-color: #f1f1f1;
+        // padding: 10px 15px 10px 15px;
+        font-size: 16px;
+        // border-radius: 4px;
+        // margin-bottom: 10px;
+        text-align: center;
+        border-bottom-style: solid;
+        border-bottom-width: 8px;
+
+        &:nth-of-type(1) {
+          border-bottom-color: #FF9473;
+        }
+
+        &:nth-of-type(2) {
+          border-bottom-color: #FFF173;
+        }
+
+        &:nth-of-type(3) {
+          border-bottom-color: #73A2FF;
+        }
+
+        &:nth-of-type(4) {
+          border-bottom-color: #58D98F;
+        }
+      }
     }
 
-    .kanban-cards {
-      margin-left: -5px;
-      margin-right: -5px;
+    &.kanban-body {
+      background-color: #E2E2E2;
+      padding: 0 30px;
+
+      // .kanban-cards {
+      //   margin-left: -5px;
+      //   margin-right: -5px;
+      // }
     }
+
+
   }
 
   .panel-controls {

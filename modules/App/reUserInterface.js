@@ -19,18 +19,19 @@
                 return true;
             }
 
-            let selectDiv = $('<div class="tech-table" style="width: 200px;"></div>');
+            let selectDiv = $('<div class="tech-table" style="width: 250px;"></div>');
             let select;
             if (UserTables.length) {
-                selectDiv.height(125)
-                let buttons = $('<div class="panel-buttons">');
-                selectDiv.prepend(buttons)
+                // selectDiv.height(125)
+                let links = $('<div class="panel-links">');
+                selectDiv.prepend(links)
                 UserTables.forEach((t) => {
                     let btn = $('<button class="btn btn-default btn-xxs"></button>').text(t['title']).on('click', () => {
                         window.location.href = '/Table/0/' + t['name'];
                     });
+                    const link = $('<a class="link"></a>').text(t['title']).attr('href', '/Table/0/' + t['name'])
 
-                    buttons.append(btn)
+                    links.append(link)
                 })
             } else if (!isCreatorView) {
 
@@ -94,6 +95,9 @@
                 sBtn.append(select);
             }
 
+            const logout = $('<div class="logout"><a class="link" href="/Auth/logout/">Выход</a></div>');
+            selectDiv.append(logout);
+
             UserFio.popover({
                 html: true,
                 content: selectDiv,
@@ -104,7 +108,7 @@
             });
             if (select) {
 
-                selectDiv.height(350)
+                // selectDiv.height(350)
 
                 select.selectpicker('render').selectpicker('toggle');
                 select.data('container', selectDiv);

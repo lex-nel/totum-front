@@ -16,13 +16,14 @@
   -ms-overflow-style: none;
 
   position: absolute;
-  background-color: #f3f3f3;
+  // background-color: #f3f3f3;
   /*color: #ccc;*/
   top: 0px;
   left: 0px;
   bottom: 0px;
-  box-shadow: 0 0 7px 0px #0000000f;
-
+  // box-shadow: 0 0 7px 0px #0000000f;
+  box-shadow: -4px -3px 7px rgba(255, 255, 255, 0.44), 2px 4px 4px rgba(123, 123, 123, 0.25);
+  z-index: 1;
 }
 
 @import "brand";
@@ -36,7 +37,7 @@
 #leftTree {
   padding-left: 10px;
   padding-bottom: 30px;
-  background-color: #f3f3f3;
+  // background-color: #f3f3f3;
   padding-top: 10px;
   width: 300px;
 

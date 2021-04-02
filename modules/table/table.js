@@ -304,7 +304,7 @@
                 this.width = $('body').width() - TreeWidth;
                 this._container.width(this.width);
                 if (!this.isMobile) {
-                    this._innerContainer.width(this.width - 80);
+                    // this._innerContainer.width(this.width - 80);
                     this.addInnerContainerScroll();
                 } else {
                     this._innerContainer.width('auto');

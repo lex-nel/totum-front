@@ -1,24 +1,54 @@
-@import "vars.scss";
+@import 'vars.scss';
 
 .btn {
   background-color: #fff;
-  &:focus, &:active {
-    outline: none !important;
-    box-shadow: none !important;
-    border-color: transparent !important;
+  min-width: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 8px 6px;
+  border-radius: 5px;
+  border: none;
+
+  // &:hover {
+  //   border-width: 2px;
+  //   margin: 0;
+  // }
+
+  // &:focus,
+  // &:active {
+  //   outline: none !important;
+  //   box-shadow: none !important;
+  //   border-color: transparent !important;
+  // }
+}
+
+.btn-default {
+  &:hover, &:focus {
+    background-color: #fff;
   }
 
+  &:hover {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  }
 }
+
 
 .btn-success {
   background-color: $btn-success-bgcolor;
 }
-.bootstrap-dialog .btn-empty-with-icon .bootstrap-dialog-button-icon{
+
+.bootstrap-dialog .btn-empty-with-icon .bootstrap-dialog-button-icon {
   margin: 0;
 }
+
 .bootstrap-select span.text small.text-muted {
   padding-left: 3px;
 }
+
 .bootstrap-select .dropdown-toggle {
   &:focus {
     outline: #333 !important;
@@ -26,7 +56,10 @@
   border-color: transparent !important;
 }
 
-.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+.bootstrap-select > .dropdown-toggle.bs-placeholder,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:active,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
   color: #333;
 }
 .bootstrap-select .dropdown-menu{
@@ -41,10 +74,30 @@
 
 .popover .dropdown-menu {
   box-shadow: none;
+  margin: 0;
+  padding: 0;
+
+  .bs-searchbox {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+
+  > li {
+    margin-bottom: 10px;
+  }
+
+  > li > a {
+    padding: 0;
+    outline-style: none;
+
+    &:hover {
+      background: none;
+      color: #FF7245;
+    }
+  }
 }
 
 .bootstrap-dialog {
-
   .modal-header {
     border-radius: 0px;
     padding-top: 15px;
@@ -81,9 +134,10 @@
     color: #fff;
   }
 
-  .bootstrap-dialog-footer-buttons{
+  .bootstrap-dialog-footer-buttons {
     line-height: 41px;
   }
+
   .bootstrap-dialog-close-button .close {
     opacity: 1;
     color: #000;
@@ -94,7 +148,7 @@
     cursor: pointer;
   }
 
- /* &.type-default .modal-header {
+  /* &.type-default .modal-header {
     background-color: #ffffff;
   }
 
@@ -102,7 +156,7 @@
     color: #333;
   }*/
 
-  .modal-header{
+  .modal-header {
     font-weight: bold;
   }
 
@@ -127,20 +181,23 @@
   }
 
   input {
-      border-radius: 3px;
-    }
-}
-button{
-  &:focus, &:active {
-    outline: none !important;
-    box-shadow: none !important;
+    border-radius: 3px;
   }
 }
+button {
+  &:focus,
+  &:active {
+    outline: none !important;
+    // box-shadow: none !important;
+  }
+}
+
 label.field-param-lable {
   span {
     font-weight: 500;
   }
-  &.switcheble{
+
+  &.switcheble {
     margin-bottom: 10px;
   }
 }

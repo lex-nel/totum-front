@@ -651,7 +651,7 @@
 
             if (!pcTable.beforeSpaceHide) {
                 this._beforeSpace.append(topButtons);
-                this._beforeSpace_title = $('<div class="pcTable-title"><span class="title"/><span class="bttns"/><div class="updated"/></div>').prependTo(this._beforeSpace);
+                this._beforeSpace_title = $('<div class="pcTable-title"><span class="title"/><span class="bttns"/><div class="updated"/></div>').prependTo('#bs-example-navbar-collapse-1');
 
 
                 if (this.tableRow.type === 'calcs' && window.TREE_DATA) {
@@ -1010,7 +1010,7 @@
 
             if (pcTable.fieldCategories.filter.length) {
 
-                this.___createClosedSection(this._filtersBlock, $('<div class="pcTable-sectionTitle"><span>Фильтры</span></div>').appendTo(this._filtersBlock), 'flt');
+                // this.___createClosedSection(this._filtersBlock, $('<div class="pcTable-sectionTitle"><span>Фильтры</span></div>').appendTo(this._filtersBlock), 'flt');
 
                 this._filtersBlock.addClass('pcTable-filtersTables');
 
@@ -1052,8 +1052,8 @@
                                 '</td></tr></td></table>').on('click', '.button-go', btnGO))
                         } else {
                             $thead.append('<th style="width: 69px;"></th>');
-                            let $ButtonsGo = $('<td class="buttons-go">').html('<button class="btn btn-default btn-xs button-go">GO</button> <button class="btn btn-default btn-xs eraser button-go"><i class="fa fa-eraser"></i></button>').appendTo($tbody);
-                            $table.width(width + 69);
+                            let $ButtonsGo = $('<td class="buttons-go">').html('<button class="btn btn-default btn-xs button-go">Применить</button> <button class="btn btn-default btn-xs eraser button-go"><i class="fa fa-eraser"></i></button>').appendTo($tbody);
+                            // $table.width(width + 69);
                             $ButtonsGo.on('click', '.button-go', btnGO);
                         }
                     }

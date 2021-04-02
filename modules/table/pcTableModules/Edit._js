@@ -32,7 +32,6 @@ $.extend(App.pcTableMain.prototype, {
             if (cell.is('.edt')) {
                 pcTable._createEditCell.call(pcTable, cell, true)
             } else {
-
                 let field = pcTable._getFieldBytd.call(pcTable, cell);
                 if (field.CodeActionOnClick) {
                     pcTable.actionOnClick(cell, field);
@@ -619,7 +618,7 @@ $.extend(App.pcTableMain.prototype, {
             }
         }
         let btnCount = editCellsBlock.find('button').length;
-        editCellsBlock.width(btnCount * 31);
+        editCellsBlock.width(btnCount * 35 - 5);
 
 
         //  let element = $('#' + App.popNotify(editCellsBlock, cdiv, null, this._container));
