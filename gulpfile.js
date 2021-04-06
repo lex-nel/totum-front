@@ -46,15 +46,15 @@ let path = {
     js: {
         src: './modules/**/*.js',
         src_parts: './modules/**/*._js',
-        dest: './http/js/'
+        dest: '../http/js/'
     },
     css: {
         src: './css/main.scss',
-        dest: './http/css/'
+        dest: '../http/css/'
     },
     cssImgs: {
         src: ['./**/css-*.*'],
-        dest: './http/css/img/'
+        dest: '../http/css/img/'
     },
     jsLibsMini: {
         src: ['bower_components/jquery/dist/jquery.min.js'
@@ -87,7 +87,7 @@ let path = {
             , 'bower_components/jquery.nicescroll/jquery.nicescroll.min.js'
             , 'node_modules/perfect-scrollbar/dist/perfect-scrollbar.js'
         ],
-        dest: './http/js/'
+        dest: '../http/js/'
     },
     cssLibs: {
         src: ['bower_components/jquery-ui/themes/base/*.min.css'
@@ -105,15 +105,15 @@ let path = {
             , 'bower_components/jstree/dist/themes/dark-with-imgs/style.css'
             , 'node_modules/perfect-scrollbar/css/perfect-scrollbar.css'
         ],
-        dest: './http/css/'
+        dest: '../http/css/'
     },
     imgsLibs: {
         src: ['bower_components/jquery-ui/themes/base/images/*.*'],
-        dest: './http/css/images/'
+        dest: '../http/css/images/'
     },
     imgsLibs2: {
         src: ['bower_components/jsoneditor/dist/img/*.*'],
-        dest: './http/css/img/'
+        dest: '../http/css/img/'
     },
     http: {
         src: ['!./http/*.*', '!./http/.*', './http/**/*.*', './http/**/.*'],
@@ -191,7 +191,7 @@ gulp.task('QUICK-PROD-DEV', function () {
     });
     gulp.task('product:js', function () {
         gulp.src('./functions.js')
-            .pipe(gulp.dest('./http/js/'));
+            .pipe(gulp.dest('../http/js/'));
 
 
         let branch = gulp.src(path.js.src)
