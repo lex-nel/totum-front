@@ -32,8 +32,6 @@
                 format = {};
             }
             if (Field.type != "button") {
-
-
                 if (format.color) {
                     css['font-color'] = format.color;
                 }
@@ -85,24 +83,25 @@
                 }
 
             } else {
-                data.__td_style = function () {
-                    let style = {td: {}, Button: {}};
-                    if (format.background) {
-                        style.Button.backgroundColor = format.background
-                    }
-                    if (format.color) {
-                        style.Button.color = format.color
-                    }
-                    style.td.backgroundColor = 'transparent';
-                    return style;
-                }
+                return
+                // data.__td_style = function () {
+                //     let style = {td: {}, Button: {}};
+                //     if (format.background) {
+                //         style.Button.backgroundColor = format.background
+                //     }
+                //     if (format.color) {
+                //         style.Button.color = format.color
+                //     }
+                //     style.td.backgroundColor = 'transparent';
+                //     return style;
+                // }
 
-                td.html(Field.getCellText(data[field.field].v, td, data))
+                // td.html(Field.getCellText(data[field.field].v, td, data))
 
-                let btn = td.find('button');
-                btn.on('click', () => {
-                    this._buttonClick(td, Field, data);
-                })
+                // let btn = td.find('button');
+                // btn.on('click', () => {
+                //     this._buttonClick(td, Field, data);
+                // })
             }
 
 
@@ -464,7 +463,7 @@
         this._clickstoCopyMe();
 
         if (pcTable.tableRow.type == 'cycles') {
-            this._content.on('dblclick', '.panelsView-card', function () {
+            this._content.on('click', '.panelsView-card', function () {
                 let id = $(this).data('id');
                 pcTable.model.dblClick(id)
             });
@@ -499,7 +498,7 @@
                 } else {
                     if (selected)
                         selected.removeClass('selected');
-                    selected = td.addClass('selected');
+                    // selected = td.addClass('selected');
                 }
             }
         });

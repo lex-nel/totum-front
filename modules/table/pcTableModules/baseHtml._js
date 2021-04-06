@@ -1052,7 +1052,7 @@
                                 '</td></tr></td></table>').on('click', '.button-go', btnGO))
                         } else {
                             $thead.append('<th style="width: 69px;"></th>');
-                            let $ButtonsGo = $('<td class="buttons-go">').html('<button class="btn btn-default btn-xs button-go">Применить</button> <button class="btn btn-default btn-xs eraser button-go"><i class="fa fa-eraser"></i></button>').appendTo($tbody);
+                            let $ButtonsGo = $('<td class="buttons-go">').html('<button class="btn btn-default btn-xs button-success">Применить<i class="fa fa-filter"></i></button> <button class="btn btn-default btn-xs eraser button-danger"><i class="fa fa-times-circle"></i></button>').appendTo($tbody);
                             // $table.width(width + 69);
                             $ButtonsGo.on('click', '.button-go', btnGO);
                         }

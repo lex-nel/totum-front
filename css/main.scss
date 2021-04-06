@@ -5,7 +5,7 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'PT Root UI';
   font-size: 13px;
   line-height: 1.48;
   //overflow: hidden;
@@ -415,7 +415,7 @@ input:not([type='checkbox']):focus {
     font-size: 12px;
   }
 
-  color: #7E7E7E;
+  color: #7e7e7e;
 }
 
 .pcTable-tabls {
@@ -448,19 +448,19 @@ $idWidth: 70px;
 $blockedTdColor: rgba(128, 128, 128, 0.47);
 $tdWithCodeColor: #fffdf9;
 $tdDataRowMainColor: #fffdf9;
-$tdBackgroundSelectedColor: #ccf0ff;
-$tdBackgroundSelectedNonEditColor: #cbe0ff;
+$tdBackgroundSelectedColor: #cde4ff;
+$tdBackgroundSelectedNonEditColor: #e2effe;
 $tdBackgroundSelectedNonEditColorGROUPS: #bceaff;
 
 @mixin idClass() {
   width: $idWidth;
-  background-color: $rowsBackColor;
+  background-color: white;
   font-size: 10px;
   text-align: right;
   padding: 0;
   padding-right: 5px;
   border-color: $rowsBackColor;
-  border-right-color: inherit;
+  // border-right-color: inherit;
   color: inherit;
   .fa-square-o {
     width: 10px;
@@ -472,10 +472,10 @@ $tdBackgroundSelectedNonEditColorGROUPS: #bceaff;
 }
 
 @mixin pcTable-td() {
-  // border: 1px solid #f1f1f1;
+  border: 1px solid #e2e2e2;
   height: 35px;
   overflow: hidden;
-  padding: 5px;
+  padding: 10px 12px;
   white-space: nowrap;
   text-overflow: ellipsis;
   position: relative;
@@ -539,7 +539,7 @@ $tdBackgroundSelectedNonEditColorGROUPS: #bceaff;
     }
   }
   &.with-code {
-    background-color: $tdWithCodeColor;
+    background-color: #fff2b0;
   }
   &.selected {
     box-shadow: inset 0 0 1000px 1000px $tdBackgroundSelectedNonEditColor !important;
@@ -590,8 +590,8 @@ $tdBackgroundSelectedNonEditColorGROUPS: #bceaff;
 
 @mixin pcTable-th() {
   color: #000000;
-  background-color: inherit;
-  border: 1px solid #f1f1f1;
+  background-color: white;
+  border: 1px solid #e2e2e2;
   .btn {
     &:hover {
       box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.17),
@@ -609,21 +609,24 @@ $tdBackgroundSelectedNonEditColorGROUPS: #bceaff;
       opacity: 0.7;
     }
   }
+
   &.admin-see {
     background-color: lighten($btn-danger-bgcolor, 20);
   }
+
   span.cell-title {
     white-space: nowrap;
     color: #4a4a4a;
   }
 
-  font-weight: normal;
+  font-weight: 500;
   height: 50px;
   overflow: hidden;
   // padding: 5px;
   text-overflow: ellipsis;
   position: relative;
   vertical-align: top;
+
   &.id {
     @include idClass();
     padding-top: 8px;
@@ -1036,6 +1039,7 @@ th {
     padding-left: 30px;
     padding-right: 30px;
     margin-bottom: 20px;
+    background-color: #e2e2e2;
 
     .ps__rail-x {
       opacity: 1;
@@ -1049,7 +1053,7 @@ th {
 
   .pcTable-scrollwrapper {
     overflow-y: hidden;
-    padding-bottom: 150px;
+    // padding-bottom: 150px;
   }
 
   span[data-unit-type]:after {
@@ -1103,7 +1107,7 @@ th {
   }
 
   td.danger-backg {
-    background-color: darken(mistyrose, 9%);
+    background-color: darken(#FFDFDF, 9%);
   }
 
   &.with_changed {
@@ -1118,24 +1122,51 @@ th {
 
   &.with_danger {
     td:not(.danger-backg) {
-      background-color: mistyrose;
+      background-color: #FFDFDF;
     }
   }
 
-  td.buttons-go {
-    button {
-      // border-color: transparent;
-      border-color: #44bc78;
-      border-style: solid;
-      border-width: 1px;
-      border-radius: 5px;
-      // box-shadow: 0px 2px 0px -1px rgba(0, 0, 0, 0.08), 0px 4px 2px 0px rgba(0, 0, 0, 0.01), 0px 1px 2px 0px rgba(0, 0, 0, 0.02);
+  .button-success {
+    padding: 8px 24px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #44bc78;
+    border-color: #44bc78;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 
-      &:hover {
-        // border-color: transparent;
-        // border-width: 2px;
-        // box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.11), 0px 4px 3px 0px rgba(0, 0, 0, 0.02), 0px 1px 5px 0px rgba(0, 0, 0, 0.02);
-      }
+    &:hover {
+      background-color: #e4faed;
+    }
+
+    &:active {
+      color: #ffffff;
+      background-color: #44bc78;
+      border-color: #44bc78;
+    }
+  }
+
+  .button-danger {
+    padding: 8px 24px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #ff7245;
+    border-color: #ff7245;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #ffe2d9;
+    }
+
+    &:active {
+      color: #ffffff;
+      background-color: #ff7245;
+      border-color: #ff7245;
     }
   }
 }
@@ -1293,7 +1324,7 @@ th {
 .pcTable-table {
   border-collapse: collapse;
 
-  margin-left: -$idWidth;
+  // margin-left: -$idWidth;
   border: none;
   table-layout: fixed;
 
@@ -1306,7 +1337,7 @@ th {
   }
 
   thead th {
-    border: none;
+    // border: none;
   }
 
   thead tr {
@@ -1348,7 +1379,7 @@ th {
       }
     }
 
-    background-color: $tdDataRowMainColor;
+    background-color: white;
 
     .InsertRow {
       .text-edit-button {
@@ -1404,7 +1435,7 @@ th {
       }
 
       &.selected td {
-        box-shadow: inset 0 0 100px 100px rgba(200, 248, 255, 0.5);
+        box-shadow: inset 0 0 100px 100px #E2EFFE;
       }
 
       &.BlockedRow td:not(.id) {
@@ -1423,9 +1454,9 @@ th {
     td {
       @include pcTable-td();
 
-      &.id {
-        border: none;
-      }
+      // &.id {
+      //   border: none;
+      // }
     }
 
     td.footer-name {
@@ -1449,6 +1480,7 @@ th {
 
 .pcTable-selectpicker.bootstrap-select.btn-group.bs-container .dropdown-menu {
   z-index: 2000;
+  border-radius: 5px;
 }
 
 .pcTable-container .popover {

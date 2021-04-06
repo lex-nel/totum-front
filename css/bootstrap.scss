@@ -69,7 +69,13 @@
 
 .bootstrap-select.btn-group .dropdown-menu li a {
   text-overflow: ellipsis;
-  //overflow: hidden;
+
+  &:hover {
+    color: #FF7245;
+    font-weight: 700;
+    background-color: transparent;
+    background-image: none;
+  }
 }
 
 .popover .dropdown-menu {
